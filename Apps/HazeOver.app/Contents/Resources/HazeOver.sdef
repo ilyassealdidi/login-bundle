@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary xmlns:xi="http://www.w3.org/2003/XInclude">
+	<xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef"
+        xpointer="xpointer(/dictionary/suite)"/>
+    
+	<suite name="HazeOver Suite" code="HzOs" description="HazeOver Scripting">
+        <access-group identifier="*"/>
+        
+		<class name="application" code="capp" description="HazeOver Application" inherits="application">
+            <cocoa class="NSApplication"/>
+            
+            <property name="enabled" code="pEnb" type="boolean" access="rw"
+                description="Is dimming enabled?"/>
+
+            <property name="intensity" code="pDim" type="real" access="rw"
+                description="Dimming intensity (0 = minimum, 100 = maximum)."/>
+                    
+            <property name="duration" code="pDur" type="real" access="rw"
+                description="Dimming animation duration in seconds (0 = minimum, 5 = maximum)."/>
+                
+            <property name="multiFocus" code="pMFo" type="boolean" access="rw"
+                description="Should highlight multiple windows of front application?"/>
+
+            <property name="multiScreen" code="pMSc" type="boolean" access="rw"
+                description="Should highlight windows on each screen independently?"/>
+
+            <property name="color" code="pClr" type="text" access="rw"
+                description="Dimming color as 6-character hex color (e.g. &quot;5ea1ed&quot;)."/>
+		</class>
+
+        <command name="updateDimming" code="HzOsuptD" description="Force dimming update">
+            <cocoa class="UpdateDimmingCommand"/>
+        </command>
+
+	</suite>
+</dictionary>
